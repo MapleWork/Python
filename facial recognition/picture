@@ -1,6 +1,6 @@
 import cv2
 
--## 將haarcascade_frontalface_default.xml的檔案位置放在cascPath
+-### 將haarcascade_frontalface_default.xml的檔案位置放在cascPath
 cascPath = "C:\\users\\bread\\AppData\\Roaming\\Python\\Python37\\site-packages\\cv2\\data\\haarcascade_frontalface_default.xml"
 
 face_cascade = cv2.CascadeClassifier(cascPath) #告訴OpenCV使用人臉辨識分類器
