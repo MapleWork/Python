@@ -1,5 +1,3 @@
-```
-```
 import cv2
 
 # 將haarcascade_frontalface_default.xml的檔案位置放在cascPath
@@ -27,6 +25,3 @@ cv2.imshow('img', img)  #顯示圖片
 cv2.imwrite("D:\\jupyter\\images.jpg", img)  #保存圖片
 cv2.waitKey(0)  #等待按下任一按鍵
 cv2.destroyAllWindows() #關閉視窗
-
-```
-```
