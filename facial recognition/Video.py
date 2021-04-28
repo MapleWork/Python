@@ -1,31 +1,39 @@
 import numpy as np
-import cv2
+import  cv2
 
-# 將haarcascade_frontalface_default.xml的檔案位置放在cascPath
-cascPath = "C:\\users\\bread\\AppData\\Roaming\\Python\\Python37\\site-packages\\cv2\\data\\haarcascade_frontalface_default.xml"
+cascPath = "D:\\Data\\Face Recognition\\haarcascade_frontalface_default.xml"
 
-face_cascade = cv2.CascadeClassifier(cascPath) #告訴OpenCV使用人臉辨識分類器
+face_cascade = cv2.CascadeClassifier(cascPath)
 
-cap = cv2.VideoCapture('D:\\jupyter\\test.mp4')  #匯入影片
+cap = cv2.VideoCapture('D:\\Data\\Face Recognition\\tw.mp4')
 
-while True:
-    ret, img = cap.read()
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+ret, frame = cap.read()
+avg = cv2.blur(frame, (4, 4))
+avg_float = np.float32(avg)
+
+
+while(cap.isOpened()):
+    ret, frame = cap.read()
+    
+    if ret == False:
+        break
+    
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     
     faces = face_cascade.detectMultiScale(
         gray,
         scaleFactor = 1.3,
-        minNeighbors = 4,     
-        minSize = (30, 30)
-        )
+        minNeighbors = 4,
+        minSize = (30,30)
+    )
     
-    for (x, y, w, h) in faces:
-        cv2.rectangle(img, (x, y), (x+w, y+h), (0, 0, 255), 2) 
-        
-    cv2.imshow('video',img)
-   
-    if cv2.waitKey(30) & 0xff == 27: # press 'ESC' to quit
+    for(x, y, w, h) in faces:
+        cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), 2)
+    
+    cv2.imshow('video',frame)
+    
+    if cv2.waitKey(30) & 0xff == 27:
         break
-                
+        
 cap.release()
 cv2.destroyAllWindows()
