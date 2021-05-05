@@ -1,8 +1,8 @@
-from flask import Flask, render_template,url_for, flash, redirect
+from flask import Flask, render_template, url_for, flash, redirect
 from forms import RegistrationForm, LoginForm
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = '029254b17320fc85910b15d246d74f35'
+app.config['SECRET_KEY'] = '71b90998810068afa40644fa53949fc2'
 
 posts = [
     {
@@ -14,13 +14,13 @@ posts = [
     {
         'author':'Jane Doe',
         'title':'Blog Post 2',
-        'content':'Second post content',
+        'content':'First post content',
         'date_posted':'April 21, 2018'
     }
 ]
 
-@app.route('/')
-@app.route('/home')
+@app.route("/")
+@app.route("/home")
 def home():
     return render_template('home.html', posts=posts)
 
@@ -35,7 +35,7 @@ def register():
         flash(f'Account created for {form.username.data}!', 'success')
         return redirect(url_for('home'))
     return render_template('register.html', title='Register', form=form)
-    
+
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     form = LoginForm()
