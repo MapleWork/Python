@@ -1,0 +1,57 @@
+import os
+import sqlite3
+import requests
+import pandas as pd
+from glob import glob
+
+year = "108"
+season = "1"
+number = "2303"
+path = "D:\\資料庫\\台股\\"
+folder = ""+path+""+number+""
+if not os.path.isdir(folder):
+    os.makedirs(folder)
+
+def get_financial_statements(number, year, season):
+
+    headers = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36 Edg/95.0.1020.44"}
+    
+    url_1 = 'https://mops.twse.com.tw/mops/web/ajax_t164sb03'
+    url_2 = 'https://mops.twse.com.tw/mops/web/ajax_t164sb04'
+
+    payload = {
+            'encodeURIComponent':'1',
+            'step':'1',
+            'firstin':'1',
+            'off':'1',
+            'queryName':'co_id',
+            'inpuType':'co_id',
+            'TYPEK':'all',
+            'isnew':'false',
+            'co_id': number,
+            'year': year,
+            'season': season
+    }
+
+    res_1 = requests.post(url_1, data = payload, headers=headers)
+    df_1 = pd.read_html(res_1.text)[1]
+    df_1.to_csv(""+path+""+number+"\\stock_"+number+"_1.csv", encoding='utf_8-sig')
+
+    res_2 = requests.post(url_2, data = payload, headers=headers)
+    df_2 = pd.read_html(res_2.text)[1]
+    df_2.to_csv(""+path+""+number+"\\stock_"+number+"_2.csv", encoding='utf_8-sig')
+
+    return df_1, df_2
+
+get_financial_statements(number, year, season)
+
+files = glob(""+path+""+number+"\\stock_"+number+"_*.csv")
+
+df = pd.concat(
+        (pd.read_csv(file, dtype={'name': str, 'tweet':str}) for file in files), ignore_index=True)
+
+df.to_csv(""+path+"All\\stock_"+number+"_All.csv", encoding='utf_8-sig')
+
+conn = sqlite3.connect(""+path+"\\台股.db")
+df = pd.read_csv(""+path+"\\stock_"+number+"_All.csv", encoding="utf_8-sig")
+df.to_sql("stock_"+number, conn, if_exists="append", index=False)
