@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+{% block content %}
+      
+    <form method="POST" action="">
+
+        <nav class="d-flex justify-content-between">
+            
+            <div class="btn-group"> 
+                <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#"> 財報排行 </a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ url_for('fs_rank') }}">fs_rank</a></li>
+                    <li><a href="{{ url_for('cement_industry') }}">水泥工業</a></li>
+                    <li><a href="{{ url_for('Semiconductor_industry') }}">半導體業</a></li>
+                    <li><a href="{{ url_for('fs_rank') }}"> 光電業 </a></li>
+                    <li><a href="{{ url_for('fs_rank') }}"> 其他業 </a></li>
+                    <li><a href="{{ url_for('fs_rank') }}">建材營造業</a></li>
+                    <li><a href="{{ url_for('fs_rank') }}">航運業</a></li>
+                    <li><a href="{{ url_for('fs_rank') }}">通信網路業</a></li>
+                    <li><a href="{{ url_for('fs_rank') }}">電子零組件業</a></li>
+                </ul>
+            </div>
+
+            <div class="btn-group"> 
+                <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#"> Not Yet </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">NotYet</a></li>
+                </ul>
+            </div>
+            
+            <div class="btn-group"> 
+                <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#"> Not Yet </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">NotYet</a></li>
+                </ul>
+            </div>
+
+            <div class="btn-group"> 
+                <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#"> Not Yet </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">NotYet</a></li>
+                </ul>
+            </div>
+
+            <div class="btn-group"> 
+                <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#"> Not Yet </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">NotYet</a></li>
+                </ul>
+            </div>
+
+            <div class="btn-group"> 
+                <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" href="#"> Not Yet </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">NotYet</a></li>
+                </ul>
+            </div>
+        </nav> 
+        
+        <div class="input-group">
+
+            <input type="search" name="keyword" class="form-control" placeholder="Enter the stock code..." aria-label="Stock Code" style="width: 500px">
+            
+            <div class="input-group-append">
+                <button type="search" class="btn btn-outline-secondary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>  
+    </form>
+{% endblock content %}
+
+<!-- 
+    <h1 class="cover-heading">Stock</h1> 
+
+    <form class="form-inline" method="POST"> 
+        action="fs_rank">  
+         <nav class="d-flex justify-content-between">
+            <a class="p-2 text-muted" href="{{ url_for('chooese') }}">財報排行</a>
+            <a class="p-2 text-muted" href="">Not yet</a>
+            <a class="p-2 text-muted" href="">Not yet</a>
+            <a class="p-2 text-muted" href="">Not yet</a>
+            <a class="p-2 text-muted" href="">Not yet</a>
+            <a class="p-2 text-muted" href="">Not yet</a>
+        </nav> 
+-->
