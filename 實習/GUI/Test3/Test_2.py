@@ -1,0 +1,35 @@
+from PIL import Image, ImageFilter
+
+img = Image.open("Test3/img.jpg")
+
+img = img.convert("RGB")
+
+imgfilted_b = img.filter(ImageFilter.BLUR)
+imgfilted_c = img.filter(ImageFilter.CONTOUR)
+imgfilted_ee = img.filter(ImageFilter.EDGE_ENHANCE)
+imgfilted_ee_m = img.filter(ImageFilter.EDGE_ENHANCE_MORE)
+imgfilted_em = img.filter(ImageFilter.EMBOSS)                    
+imgfilted_fe = img.filter(ImageFilter.FIND_EDGES)                                                
+imgfilted_sm = img.filter(ImageFilter.SMOOTH)
+imgfilted_sm_m = img.filter(ImageFilter.SMOOTH_MORE)
+imgfilted_sh = img.filter(ImageFilter.SHARPEN)
+
+imgfilted_b.save("1b.jpg")
+imgfilted_c.save("1c.jpg")
+imgfilted_ee.save("1ee.jpg")
+imgfilted_ee_m.save("1eem.jpg")
+imgfilted_em.save("1em.jpg")
+imgfilted_fe.save("1fe.jpg")                                
+imgfilted_sm.save("1sm.jpg")
+imgfilted_sm_m.save("1smm.jpg")
+imgfilted_sh.save("1sh.jpg")
+
+imgfilted_b.show()
+imgfilted_c.show()
+imgfilted_ee.show()
+imgfilted_ee_m.show()
+imgfilted_em.show()
+imgfilted_fe.show()                                
+imgfilted_sm.show()
+imgfilted_sm_m.show()
+imgfilted_sh.show()
