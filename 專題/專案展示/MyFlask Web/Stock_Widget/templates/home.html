@@ -1,0 +1,159 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <div class="search-bar">
+        <form action="">
+            <div class="input-group">
+
+                <div class="input-field">
+                    <!--  name="select" -->
+                    <select class="select" data-trigger="">
+                        <option> 股票 </option>
+                        <option> 文章 </option>
+                    </select>
+                </div>
+                
+                <!--  name="keyword"   id="tags"-->
+                <input type="text" id="tags" name="ID" class="form-control" placeholder="Enter the stock code..." aria-label="Stock Code" style="width: 330px">
+                
+                <!-- onclick="jumpToPage(false)" -->
+                <div class="input-group-append">
+                    <button type="text" class="btn btn-outline-secondary" onclick="searchStock($('#keyword'));">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>    
+        </form>
+    </div>
+{% endblock content %}
+
+
+{% block content1 %}
+
+    <div class="content">
+        <!-- <h1 class="title">  </h1> -->
+
+        <ul id="myTab" class="nav nav-pills">
+            <li class="active">
+                <a href="#season" data-toggle="pill">
+                    單季
+                </a>
+            </li>
+            <li><a href="#four_season" data-toggle="pill">近四季</a></li>
+            <li><a href="#year_season" data-toggle="pill">年度</a></li>
+        </ul>
+    </div>
+
+
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="season">
+            <div id="sitebody">
+                <div id="content">{{data_plot|safe}}</div>
+            </div>
+            <div id="sitebody-1">
+                <div id="footer">
+                    <div class="table-content">
+                        <table class="table table-striped table-bordered table-hover"  data-toggle="table">
+                            <thead>
+                                {% for i in labels %}
+                                    <th data-sortable="true">
+                                        {{ i }}
+                                    </th>
+                                {% endfor %}
+                            </thead>
+                            <tbody>
+                                {% for i in content %}
+                                    <tr>
+                                        {% for j in i %}
+                                            <td>{{ j }}</td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="four_season">
+            <div id="sitebody">
+                <div id="content">{{data_plot_d|safe}}</div>
+            </div>
+
+            <div id="sitebody-1">
+                <div id="footer">
+                    <div class="table-content">
+                        <table class="table table-striped table-bordered table-hover"  data-toggle="table">
+                            <thead>
+                                {% for i in labels2 %}
+                                    <th data-sortable="true">
+                                        {{ i }}
+                                    </th>
+                                {% endfor %}
+                            </thead>
+                            <tbody>
+                                {% for i in content2 %}
+                                    <tr>
+                                        {% for j in i %}
+                                            <td>{{ j }}</td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="year_season">
+            <div id="sitebody">
+                <div id="content">{{data_plot_y|safe}}</div>
+            </div>
+
+            <div id="sitebody-1">
+                <div id="footer">
+                    <div class="table-content">
+                        <table class="table table-striped table-bordered table-hover"  data-toggle="table">
+                            <thead>
+                                {% for i in labels3 %}
+                                    <th data-sortable="true">
+                                        {{ i }}
+                                    </th>
+                                {% endfor %}
+                            </thead>
+                            <tbody>
+                                {% for i in content3 %}
+                                    <tr>
+                                        {% for j in i %}
+                                            <td>{{ j }}</td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        
+
+
+
+    <script>
+        $(function(){
+
+            $("#myTab a").click(function(e){
+                e.preventDefault();
+                $(this).tab("show");
+            });
+        })
+    </script>
+
+    
+{% endblock content1 %}

@@ -1,0 +1,144 @@
+{% extends "layout plus.html" %}
+{% block content1 %}
+  
+                    
+                    <form method="GET" action="">
+
+                        
+
+                    <div class="content">
+                        <ul id="myTab" class="nav nav-pills">
+                            <li class="active">
+                                <a href="#season" data-toggle="pill">單季</a>
+                            </li>
+                            <li><a href="#four_season" data-toggle="pill">近四季</a></li>
+                            <li><a href="#year_season" data-toggle="pill">年度</a></li>
+                        </ul>
+                    </div><br>
+
+                    
+                    
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="season">
+
+                            <ul>
+                                <button id="tags" name="ID" value="化學工業">化學工業</button>
+                                <button id="tags" name="ID" value="水泥工業">水泥工業</button>
+                                <button id="tags" name="ID" value="半導體業">半導體業</button>
+                                <button id="tags" name="ID" value="生技醫療業">生技醫療業</button>
+                                <button id="tags" name="ID" value="光電業">光電業</button>
+                                <button id="tags" name="ID" value="汽車工業">汽車工業</button>
+                                <button id="tags" name="ID" value="其他業">其他業</button>
+                                <button id="tags" name="ID" value="其他電子業">其他電子業</button>
+                                <button id="tags" name="ID" value="油電燃氣業">油電燃氣業</button>
+                                <button id="tags" name="ID" value="建材營造業">建材營造業</button>
+                                <button id="tags" name="ID" value="玻璃陶瓷">玻璃陶瓷</button>
+                                <button id="tags" name="ID" value="食品工業">食品工業</button>
+                                <button id="tags" name="ID" value="紡織纖維">紡織纖維</button>
+                                <button id="tags" name="ID" value="航運業">航運業</button>
+                                <br/><br/>
+                                <button id="tags" name="ID" value="通信網路業">通信網路業</button>
+                                <button id="tags" name="ID" value="電子通路業">電子通路業</button>
+                                <button id="tags" name="ID" value="電子零組件業">電子零組件業</button>
+                                <button id="tags" name="ID" value="電腦及週邊設備業">電腦及週邊設備業</button>
+                                <button id="tags" name="ID" value="電器電纜">電器電纜</button>
+                                <button id="tags" name="ID" value="電機機械">電機機械</button>
+                                <button id="tags" name="ID" value="橡膠工業">橡膠工業</button>
+                                <button id="tags" name="ID" value="鋼鐵工業">鋼鐵工業</button>
+                                <button id="tags" name="ID" value="觀光事業">觀光事業</button>
+                                <button id="tags" name="ID" value="造紙工業">造紙工業</button>
+                                <button id="tags" name="ID" value="貿易百貨業">貿易百貨業</button>
+                                <button id="tags" name="ID" value="塑膠工業">塑膠工業</button>
+                                <button id="tags" name="ID" value="資訊服務業">資訊服務業</button>
+                            </ul><br>
+
+                            <table id="tabs3" class="table table-bordered table-striped table-hover-yw table-sticky" data-toggle="table" data-sortable="true">
+                                <thead data-sortable="true">
+                                    {% for i in labels %}
+                                        <th>
+                                            {{ i }}
+                                        </th>
+                                    {% endfor %}
+                                </thead>
+                
+                                <tbody>
+                                    {% for i in content %}
+                                        <tr>
+                                            {% for j in i %}
+                                                <td>{{ j }}</td>
+                                            {% endfor %}
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="tab-pane fade" id="four_season">
+
+                            <ul>
+                                <button id="tags" name="ID" value="化學工業">化學工業</button>
+                                <button id="tags" name="ID" value="水泥工業">水泥工業</button>
+                                <button id="tags" name="ID" value="半導體業">半導體業</button>
+                                <button id="tags" name="ID" value="生技醫療業">生技醫療業</button>
+                                <button id="tags" name="ID" value="光電業">光電業</button>
+                                <button id="tags" name="ID" value="汽車工業">汽車工業</button>
+                                <button id="tags" name="ID" value="其他業">其他業</button>
+                                <button id="tags" name="ID" value="其他電子業">其他電子業</button>
+                                <button id="tags" name="ID" value="油電燃氣業">油電燃氣業</button>
+                                <button id="tags" name="ID" value="建材營造業">建材營造業</button>
+                                <button id="tags" name="ID" value="玻璃陶瓷">玻璃陶瓷</button>
+                                <button id="tags" name="ID" value="食品工業">食品工業</button>
+                                <button id="tags" name="ID" value="紡織纖維">紡織纖維</button>
+                                <button id="tags" name="ID" value="航運業">航運業</button>
+                                <br/><br/>
+                                <button id="tags" name="ID" value="通信網路業">通信網路業</button>
+                                <button id="tags" name="ID" value="電子通路業">電子通路業</button>
+                                <button id="tags" name="ID" value="電子零組件業">電子零組件業</button>
+                                <button id="tags" name="ID" value="電腦及週邊設備業">電腦及週邊設備業</button>
+                                <button id="tags" name="ID" value="電器電纜">電器電纜</button>
+                                <button id="tags" name="ID" value="電機機械">電機機械</button>
+                                <button id="tags" name="ID" value="橡膠工業">橡膠工業</button>
+                                <button id="tags" name="ID" value="鋼鐵工業">鋼鐵工業</button>
+                                <button id="tags" name="ID" value="觀光事業">觀光事業</button>
+                                <button id="tags" name="ID" value="造紙工業">造紙工業</button>
+                                <button id="tags" name="ID" value="貿易百貨業">貿易百貨業</button>
+                                <button id="tags" name="ID" value="塑膠工業">塑膠工業</button>
+                                <button id="tags" name="ID" value="資訊服務業">資訊服務業</button>
+                            </ul>
+
+                            <table id="tabs4" class="table table-bordered table-striped table-hover-yw table-sticky" data-toggle="table" data-sortable="true">
+                                <thead data-sortable="true">
+                                    {% for i in labels1 %}
+                                        <th >
+                                            {{ i }}
+                                        </th>
+                                    {% endfor %}
+                                </thead>
+                            
+                                <tbody>
+                                    {% for i in content1 %}
+                                        <tr>
+                                            {% for j in i %}
+                                                <td>{{ j }}</td>
+                                            {% endfor %}
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(function(){
+                $("#myTab a").click(function(e){
+                    e.preventDefault();
+                    $(this).tab("show");
+                });
+            })
+        </script>
+    </form>
+{% endblock content1 %}
+
