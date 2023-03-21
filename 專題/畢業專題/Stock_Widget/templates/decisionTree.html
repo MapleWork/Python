@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content1 %}
+        <form method="GET" action="">
+            <div class="content">
+                <div class="True_False" style="font-size:18px;">
+                    <ul>
+                        <button id="tags" class="btn btn-primary" name="True_False" value="正">正</button>
+                        <button id="tags"  class="btn btn-primary"name="True_False" value="負">負</button>
+                        數量：    {{ total }}
+                        正負樣本總數量：    {{ A_total }}
+                    </ul>
+                </div>
+            </div><br>
+            <table id="tabs3 " class="table table-bordered table-striped table-hover-yw table-sticky" data-toggle="table" data-sortable="true">
+                <thead>
+                    <tr>
+                                {% for col in header %}
+                                <th data-sortable="true">{{ col }}</th>
+                                {% endfor %}
+                            </tr>                          
+                    </thead>
+                    <tbody>
+                        <!-- DATA ROWS -->
+                        {% for row in reader %}
+                        <tr>
+                        {% for col in row %}
+                        <td>{{ col }}</td>
+                        {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+        </form>
+        
+        {% endblock content1 %}

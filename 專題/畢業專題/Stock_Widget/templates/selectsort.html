@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sort Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
+
+    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+    <style type="text/css">
+        th{
+            background-color:dodgerblue;
+            font-size: 16px;
+        }
+    </style>
+</head>
+    
+    <body>
+        <div class="select">
+            <form action="/selectsort" method="get" autocomplete="off">
+                <div style="font-size:15px;">
+                ROE:<input type="number" name="roe" value="{{roe}}" autocomplete="off" required="required">
+                EPS:<input type="number" name="eps" value="{{eps}}" autocomplete="off" required="required">
+                毛利率:<input type="number" name="gross_margin"value="{{gross_margin}}" autocomplete="off" required="required">
+                現金殖利率:<input type="number" name="dividend_yield"value="{{dividend_yield}}" autocomplete="off" required="required">
+                股價:<input type="number" name="stock_price"value="{{stock_price}}" autocomplete="off" required="required">
+                董監持股:<input type="number" name="dacirh"value="{{dacirh}}" autocomplete="off" required="required">
+                <input type="submit" value="搜尋">
+                <input type="submit" value="機器學習">
+                完全符合公司：{{match}}
+                完全不符合公司：{{not_match}}
+                正樣本：{{match_plus}}
+                負樣本：{{match_minus}}
+                樣本總數：{{total}}
+            </div>
+            </form>
+        </div>
+        
+        <div class="col-md-10 col-sm-10 col-xs-10">
+            <table id="sort-table" data-toggle="table">
+                <thead>
+                    <tr>
+                        {% for i in labels %}
+                        <th data-sortable="true">{{ i }}</th>
+                        {% endfor %}
+                        {% for i in sort_label %}
+                        <th data-sortable="true">{{ i }}</th>
+                        {% endfor %}
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in content %}
+                    <tr>
+                        {% for j in i %}
+                        <td>{{ j }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+    </body>
+</html>

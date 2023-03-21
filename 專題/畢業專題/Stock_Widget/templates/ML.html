@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block content1 %}
+
+        <form action="/ML" method="get" autocomplete="off">  
+            <div style="font-size:18px;">              
+                ROE:<input type="number" name="roe" value="{{roe}}" autocomplete="off" required="required">
+                EPS:<input type="number" name="eps" value="{{eps}}" autocomplete="off" required="required">
+                <br><br>
+                毛利率:<input type="number" name="gross_margin"value="{{gross_margin}}" autocomplete="off" required="required">
+                現金殖利率:<input type="number" name="dividend_yield"value="{{dividend_yield}}" autocomplete="off" required="required">
+                <br>
+                <button type="submit" class="btn btn-primary btn-lg mt-3" id="search" style="font-size: 18px;">搜尋</button>
+                <a href="/dataScience" button type="button" class="btn btn-primary btn-lg mt-3" style="font-size: 18px;">SVM</a>
+                <a href="/decisionTree" button type="button" class="btn btn-primary btn-lg mt-3" style="font-size: 18px;">DecisionTree</a>
+            </div>
+        </form>
+        <div style="font-size: 18px;">
+            完全符合公司：{{match}}
+            完全不符合公司：{{not_match}}
+            正樣本：{{match_plus}}
+            負樣本：{{match_minus}}
+            樣本總數：{{total}}
+        </div>
+    </div>
+    
+        <table id="tabs3 " class="table table-bordered table-striped table-hover-yw table-sticky" data-toggle="table" data-sortable="true">
+            <thead>
+                <tr>
+                    {% for i in labels %}
+                    <th data-sortable="true">{{ i }}</th>
+                    {% endfor %}
+                    {% for i in sort_label %}
+                    <th data-sortable="true">{{ i }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in content %}
+                <tr>
+                    {% for j in i %}
+                    <td>{{ j }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endblock content1 %}
