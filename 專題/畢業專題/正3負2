@@ -1,0 +1,33 @@
+digraph Tree {
+node [shape=box, fontname="Microsoft YaHei"] ;
+edge [fontname="Microsoft YaHei"] ;
+0 [label="毛利率_5Y <= 20.025\ngini = 0.605\nsamples = 601\nvalue = [227, 290, 84]"] ;
+1 [label="現金殖利率 <= 4.975\ngini = 0.391\nsamples = 285\nvalue = [209, 76, 0]"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="毛利率_5Y <= 20.0\ngini = 0.01\nsamples = 203\nvalue = [202, 1, 0]"] ;
+1 -> 2 ;
+3 [label="gini = 0.0\nsamples = 201\nvalue = [201, 0, 0]"] ;
+2 -> 3 ;
+4 [label="gini = 0.5\nsamples = 2\nvalue = [1, 1, 0]"] ;
+2 -> 4 ;
+5 [label="EPS_5Y <= 0.0\ngini = 0.156\nsamples = 82\nvalue = [7, 75, 0]"] ;
+1 -> 5 ;
+6 [label="gini = 0.0\nsamples = 7\nvalue = [7, 0, 0]"] ;
+5 -> 6 ;
+7 [label="gini = 0.0\nsamples = 75\nvalue = [0, 75, 0]"] ;
+5 -> 7 ;
+8 [label="現金殖利率 <= 5.005\ngini = 0.467\nsamples = 316\nvalue = [18, 214, 84]"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+9 [label="EPS_5Y <= 0.0\ngini = 0.147\nsamples = 225\nvalue = [18, 207, 0]"] ;
+8 -> 9 ;
+10 [label="gini = 0.0\nsamples = 18\nvalue = [18, 0, 0]"] ;
+9 -> 10 ;
+11 [label="gini = 0.0\nsamples = 207\nvalue = [0, 207, 0]"] ;
+9 -> 11 ;
+12 [label="EPS_5Y <= 0.245\ngini = 0.142\nsamples = 91\nvalue = [0, 7, 84]"] ;
+8 -> 12 ;
+13 [label="gini = 0.0\nsamples = 7\nvalue = [0, 7, 0]"] ;
+12 -> 13 ;
+14 [label="gini = 0.0\nsamples = 84\nvalue = [0, 0, 84]"] ;
+12 -> 14 ;
+}
